@@ -1,0 +1,48 @@
+openapi: '3.0.3'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: http://localhost:8080/
+    description: Servidor de teste
+paths:
+  /users:
+    get:
+      operationId: getUsers
+      summary: Obtém todos os usuários do sistema
+      tags:
+        - Usuários
+      responses:
+        '200':
+          description: Lista de usuários
+          content:
+            appication/json:
+              schema:
+                type: object
+                properties:
+                  usuarios:
+                    type: array
+
+  /users:
+    post:
+      operationId: postUsers
+      summary: Cadastra usuarios no sistema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: foo@bar.com
+                senha:
+                  type: string
+                  example: senhasecreta
+      tags:
+        - Autenticação
+      responses:
+        '200':
+          description: ok
+          content:
+
